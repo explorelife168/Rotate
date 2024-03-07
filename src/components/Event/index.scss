@@ -1,0 +1,12 @@
+.event-wrap {
+  position: relative;
+  min-width: 480px;
+  min-height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 1920px auto;
+
+  @media (min-width: 1920px) {
+    background-size: 100% auto;
+  }
+}
