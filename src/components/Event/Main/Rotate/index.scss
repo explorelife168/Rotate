@@ -1,0 +1,15 @@
+.rotate-wrap {
+  position: relative;
+  min-width: 480px;
+  width: 100%;
+
+  background-color: rgba(241, 55, 200, 0.6);
+  .turntable-bottom {
+    position: relative;
+    width: 75%;
+    padding-bottom: calc(75% / 718 * 718);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+  }
+}
