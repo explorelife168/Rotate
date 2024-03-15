@@ -2,7 +2,7 @@
   <div
     class="bg-wrap"
     :style="{
-      'background-image': `url(${require('@/assets/drop_bg_m.jpg')}), url(${require('@/assets/bg_repeat.jpg')})`,
+      'background-image': `url(${require('@/assets/drop_bg_m.jpg')}), url(${require('@/assets/bg_repeat.png')})`,
     }"
   ></div>
 </template>
