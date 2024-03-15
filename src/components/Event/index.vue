@@ -1,9 +1,9 @@
 <template>
   <div class="event-wrap">
-    <!-- <div
+    <div
       class="bg"
       :style="{ 'background-image': `url(${require('@/assets/bg.jpg')})` }"
-    ></div> -->
+    ></div>
 
     <Main />
   </div>
