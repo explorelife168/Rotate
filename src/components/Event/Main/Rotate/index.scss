@@ -1,8 +1,7 @@
 .rotate-wrap {
   position: relative;
-  // min-width: 480px;
   width: 100%;
-
+  padding-top: 2%;
   background-color: rgba(241, 55, 200, 0.6);
   .turntable-bottom {
     position: relative;
@@ -11,5 +10,23 @@
     background-size: 100% auto;
     background-repeat: no-repeat;
     margin: 0 auto;
+    .turntable-center {
+      position: absolute;
+      width: 88%;
+      top: 4%;
+      left: 4.7%;
+      padding-bottom: calc(88% / 640 * 636);
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
+    .turntable-top {
+      position: absolute;
+      width: 11%;
+      left: 44%;
+      top: 42.5%;
+      padding-bottom: calc(11% / 99 * 98);
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
   }
 }
