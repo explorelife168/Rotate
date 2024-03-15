@@ -8,6 +8,7 @@ type UseDataStore = {
     password: string;
   }[];
   loginStatus: boolean;
+  awardList: string[];
 };
 
 const useDataStore = defineStore({
@@ -15,6 +16,16 @@ const useDataStore = defineStore({
   state: (): UseDataStore => ({
     info: [],
     loginStatus: false,
+    awardList: [
+      "Rice",
+      "Noodles",
+      "Fried Chicken",
+      "Vegetarian Diet",
+      "Soup",
+      "Dessert",
+      "Steak",
+      "Drink",
+    ],
   }),
   getters: {},
   actions: {
