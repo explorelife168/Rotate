@@ -18,11 +18,22 @@
       padding-bottom: calc(88% / 640 * 636);
       background-size: 100% auto;
       background-repeat: no-repeat;
+      //   transform: rotate(45deg);
+      //   animation: rotate 5s linear infinite;
+      //   transform-origin: center;
+      //   @keyframes rotate {
+      //     0% {
+      //       transform: rotate(0deg);
+      //     }
+      //     100% {
+      //       transform: rotate(360deg);
+      //     }
+      //   }
     }
     .turntable-top {
       position: absolute;
       width: 11%;
-      left: 44%;
+      left: 43%;
       top: 42.5%;
       padding-bottom: calc(11% / 99 * 98);
       background-size: 100% auto;
