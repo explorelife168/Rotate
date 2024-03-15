@@ -6,6 +6,17 @@ const routes: Array<RouteRecordRaw> = [
     name: "Main",
     component: () => import("../components/Event/index.vue"),
   },
+  // {
+  //   path: "/login",
+  //   name: "login",
+  //   component: () => import("../components/Event/Main/TextLogIn/index.vue"),
+  // },
+  // {
+  //   path: "/work",
+  //   name: "work",
+  //   component: () => import("../components/Event/Main/work/index.vue"),
+  //   // meta: { requireAuth: true },
+  // },
 ];
 
 const router = createRouter({
