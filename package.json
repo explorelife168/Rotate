@@ -9,10 +9,12 @@
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
+    "@types/pixi.js": "^5.0.0",
     "core-js": "^3.8.3",
     "gsap": "^3.12.5",
     "pinia": "^2.1.7",
     "pixi": "^0.3.1",
+    "pixi.js": "^5.3.12",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.3",

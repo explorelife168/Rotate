@@ -4,6 +4,7 @@ node_modules
 TestSix
 TextLogin
 work
+ReceiveCoin.js
 
 # local env files
 .env.local

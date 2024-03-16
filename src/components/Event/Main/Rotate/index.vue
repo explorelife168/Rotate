@@ -8,6 +8,7 @@
     >
       <div
         class="turntable-center"
+        ref="turntableCenterCanvas"
         :style="{
           'background-image': `url(${require('@/assets/turntable_center.png')})`,
         }"
@@ -25,11 +26,18 @@
           'background-image': `url(${require('@/assets/turntable_top.png')})`,
         }"
       ></div>
+      <div
+        class="pointer"
+        :style="{
+          'background-image': `url(${require('@/assets/pointer.png')})`,
+        }"
+      ></div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 import useDataStore from "@/stores/useDataStore";
+// import TurnTableCanvas from "@/animation/turnTableCanvas/turnTableCanvas";
 
 const dataStore = useDataStore();
 </script>
