@@ -9,6 +9,8 @@ type UseDataStore = {
   }[];
   loginStatus: boolean;
   awardList: string[];
+  animationStatus: boolean;
+  backgroundStatus: boolean;
 };
 
 const useDataStore = defineStore({
@@ -26,8 +28,17 @@ const useDataStore = defineStore({
       "Steak",
       "Drink",
     ],
+    animationStatus: false,
+    backgroundStatus: false,
   }),
-  getters: {},
+  getters: {
+    getAnimationStatus(state) {
+      return state.animationStatus;
+    },
+    getBackgroundStatus(state) {
+      return state.backgroundStatus;
+    },
+  },
   actions: {
     // 產品畫面更新
     register(data1: string, data2: string, data3: string, data4: string) {
@@ -37,6 +48,12 @@ const useDataStore = defineStore({
         email: data3,
         password: data4,
       });
+    },
+    actionAnimationStatus() {
+      this.animationStatus = !this.animationStatus;
+    },
+    actionBackgroundStatus() {
+      this.backgroundStatus = !this.backgroundStatus;
     },
   },
 });
