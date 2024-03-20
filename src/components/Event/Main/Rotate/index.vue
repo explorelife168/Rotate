@@ -57,34 +57,34 @@ const backgroundStatus = computed(() => dataStore.getBackgroundStatus);
 const getRandomAngle = computed(() => dataStore.getRandomAngle);
 
 //開場動畫
-const openAnimation = () => {
-  dataStore.actionBackgroundStatus();
+// const openAnimation = () => {
+//   dataStore.actionBackgroundStatus();
 
-  //轉盤
-  gsap.to(turnTableCenter.value, {
-    rotate: "2160",
-    duration: 4,
-    ease: "Power4.easeOut",
-    onComplete: () => {
-      dataStore.actionBackgroundStatus();
-    },
-  });
-  //指針動畫
-  gsap.to(pointer.value, {
-    rotation: -30,
-    duration: 0.5,
-    repeat: 5,
-    yoyo: true,
-    ease: "power1.inOut",
-    onComplete: () => {
-      gsap.to(pointer.value, {
-        rotation: 0,
-        duration: 0.5,
-        ease: "power1.inOut",
-      });
-    },
-  });
-};
+//   //轉盤
+//   gsap.to(turnTableCenter.value, {
+//     rotate: "2160",
+//     duration: 4,
+//     ease: "Power4.easeOut",
+//     onComplete: () => {
+//       dataStore.actionBackgroundStatus();
+//     },
+//   });
+//   //指針動畫
+//   gsap.to(pointer.value, {
+//     rotation: -30,
+//     duration: 0.5,
+//     repeat: 5,
+//     yoyo: true,
+//     ease: "power1.inOut",
+//     onComplete: () => {
+//       gsap.to(pointer.value, {
+//         rotation: 0,
+//         duration: 0.5,
+//         ease: "power1.inOut",
+//       });
+//     },
+//   });
+// };
 
 //隨機角度
 const randomAngleFn = () => {
@@ -93,47 +93,49 @@ const randomAngleFn = () => {
     Math.random() * 18 + getRandomAngle.value[randomIndex][0]
   );
   console.log("randomAngle:", randomAngle);
-  return randomAngle; //指針角度
+  return { randomIndex, randomAngle }; //指針角度
 };
 
-const randomAwardList = (ang: number) => {
-  let Angle = 45;
-  let newAng = ang - 2160;
-  for (let i = 0; i < awardList.value.length; i++) {
-    if (Angle < newAng) {
-      Angle += 45;
-    } else if (Angle > newAng) {
-      return console.log(awardList.value[i]);
-    }
-  }
-};
+// const randomAwardList = (ang: number) => {
+//   let Angle = 45;
+//   let newAng = ang - 2160;
+//   for (let i = 0; i < awardList.value.length; i++) {
+//     if (Angle < newAng) {
+//       Angle += 45;
+//     } else if (Angle > newAng) {
+//       return console.log(awardList.value[i]);
+//     }
+//   }
+// };
 
 //轉盤執行
 const closeRaiseAnimation = () => {
-  let totalAngle = 2160;
-  // let reduceAngle = 0;
+  let reduceAngle = 0;
 
   const animation = () => {
-    console.log("totalAngle:", totalAngle);
+    // console.log("totalAngle:", totalAngle);
+    const { randomIndex, randomAngle } = randomAngleFn();
     //轉盤
 
-    let randomAngle = randomAngleFn();
+    if (reduceAngle === 0) {
+      reduceAngle = 0;
+    }
 
-    // if (reduceAngle === 0) {
-    //   reduceAngle = 0;
-    // } else {
-    //   reduceAngle = 360 - randomAngle;
-    // }
-    totalAngle = totalAngle + randomAngle;
+    // totalAngle = totalAngle + randomAngle;
+    console.log(reduceAngle);
     gsap.to(turnTableCenter.value, {
-      rotate: `+=${totalAngle - 22.5}`,
+      rotate: `+=${2160 + randomAngle + reduceAngle - 22.5}`,
       duration: 4,
       ease: "Power4.easeOut",
       onComplete: () => {
-        randomAwardList(totalAngle);
+        // if (totalAngle > 2520) {
+        //   totalAngle = totalAngle - 360;
+        // }
+        reduceAngle = 360 - randomAngle + 22.5;
+
+        alert(awardList.value[randomIndex]);
         dataStore.actionAnimationStatus();
         dataStore.actionBackgroundStatus();
-        totalAngle = 2160;
       },
     });
     //指針動畫
@@ -164,7 +166,7 @@ watch(animationStatus, (newVal) => {
 });
 
 onMounted(() => {
-  openAnimation(); //開場執行動畫
+  // openAnimation(); //開場執行動畫
 });
 </script>
 <style lang="scss" scoped>
