@@ -10,7 +10,7 @@
       <div
         class="turntable-center"
         :style="{
-          'background-image': `url(${require('@/assets/turntable_center.png')})`,
+          'background-image': `url(${require('@/assets/turntable_center3.png')})`,
         }"
         ref="turnTableCenter"
       >
@@ -56,35 +56,35 @@ const backgroundStatus = computed(() => dataStore.getBackgroundStatus);
 
 const getRandomAngle = computed(() => dataStore.getRandomAngle);
 
-//開場動畫
-// const openAnimation = () => {
-//   dataStore.actionBackgroundStatus();
+// 開場動畫;
+const openAnimation = () => {
+  dataStore.actionBackgroundStatus();
 
-//   //轉盤
-//   gsap.to(turnTableCenter.value, {
-//     rotate: "2160",
-//     duration: 4,
-//     ease: "Power4.easeOut",
-//     onComplete: () => {
-//       dataStore.actionBackgroundStatus();
-//     },
-//   });
-//   //指針動畫
-//   gsap.to(pointer.value, {
-//     rotation: -30,
-//     duration: 0.5,
-//     repeat: 5,
-//     yoyo: true,
-//     ease: "power1.inOut",
-//     onComplete: () => {
-//       gsap.to(pointer.value, {
-//         rotation: 0,
-//         duration: 0.5,
-//         ease: "power1.inOut",
-//       });
-//     },
-//   });
-// };
+  //轉盤
+  gsap.to(turnTableCenter.value, {
+    rotate: "2160",
+    duration: 4,
+    ease: "Power4.easeOut",
+    onComplete: () => {
+      dataStore.actionBackgroundStatus();
+    },
+  });
+  //指針動畫
+  gsap.to(pointer.value, {
+    rotation: -30,
+    duration: 0.5,
+    repeat: 5,
+    yoyo: true,
+    ease: "power1.inOut",
+    onComplete: () => {
+      gsap.to(pointer.value, {
+        rotation: 0,
+        duration: 0.5,
+        ease: "power1.inOut",
+      });
+    },
+  });
+};
 
 //隨機角度
 const randomAngleFn = () => {
@@ -95,18 +95,6 @@ const randomAngleFn = () => {
   console.log("randomAngle:", randomAngle);
   return { randomIndex, randomAngle }; //指針角度
 };
-
-// const randomAwardList = (ang: number) => {
-//   let Angle = 45;
-//   let newAng = ang - 2160;
-//   for (let i = 0; i < awardList.value.length; i++) {
-//     if (Angle < newAng) {
-//       Angle += 45;
-//     } else if (Angle > newAng) {
-//       return console.log(awardList.value[i]);
-//     }
-//   }
-// };
 
 //轉盤執行
 const closeRaiseAnimation = () => {
@@ -166,7 +154,7 @@ watch(animationStatus, (newVal) => {
 });
 
 onMounted(() => {
-  // openAnimation(); //開場執行動畫
+  openAnimation(); //開場執行動畫
 });
 </script>
 <style lang="scss" scoped>
