@@ -21,25 +21,25 @@ const useDataStore = defineStore({
     loginStatus: false,
     awardList: [
       "Rice",
-      "Drink",
-      "Steak",
-      "Dessert",
-      "Soup",
-      "Vegetarian Diet",
-      "Fried Chicken",
       "Noodles",
+      "Fried Chicken",
+      "Vegetarian Diet",
+      "Soup",
+      "Dessert",
+      "Steak",
+      "Drink",
     ],
     animationStatus: false,
     backgroundStatus: false,
     randomAngle: [
-      [12.5, 32.5],
-      [57.5, 87.5],
-      [102.5, 122.5],
-      [147.5, 167.5],
-      [192.5, 212.5],
-      [237.5, 257.5],
-      [282.5, 302.5],
-      [327.5, 347.5],
+      [12.5, 32.5], //45
+      [57.5, 87.5], //90
+      [102.5, 122.5], //135
+      [147.5, 167.5], //180
+      [192.5, 212.5], //225
+      [237.5, 257.5], //270
+      [282.5, 302.5], //315
+      [327.5, 347.5], //360
     ],
   }),
   getters: {

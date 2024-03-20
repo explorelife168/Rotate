@@ -90,8 +90,9 @@ const openAnimation = () => {
 const randomAngleFn = () => {
   const randomIndex = Math.floor(Math.random() * getRandomAngle.value.length);
   const randomAngle = Math.floor(
-    Math.random() * 20 + getRandomAngle.value[randomIndex][0]
+    Math.random() * 18 + getRandomAngle.value[randomIndex][0]
   );
+  console.log("randomAngle:", randomAngle);
   return randomAngle; //指針角度
 };
 
@@ -99,12 +100,10 @@ const randomAwardList = (ang: number) => {
   let Angle = 45;
   let newAng = ang - 2160;
   for (let i = 0; i < awardList.value.length; i++) {
-    console.log(newAng);
     if (Angle < newAng) {
-      Angle += +45;
-      console.log(i);
+      Angle += 45;
     } else if (Angle > newAng) {
-      return alert(awardList.value[i]);
+      return console.log(awardList.value[i]);
     }
   }
 };
@@ -112,7 +111,7 @@ const randomAwardList = (ang: number) => {
 //轉盤執行
 const closeRaiseAnimation = () => {
   let totalAngle = 2160;
-  let reduceAngle = 0;
+  // let reduceAngle = 0;
 
   const animation = () => {
     console.log("totalAngle:", totalAngle);
@@ -120,15 +119,14 @@ const closeRaiseAnimation = () => {
 
     let randomAngle = randomAngleFn();
 
-    if (reduceAngle === 0) {
-      reduceAngle = 0;
-    } else {
-      reduceAngle = 360 - randomAngle;
-    }
-    totalAngle = totalAngle + randomAngle + reduceAngle + 22.5;
-    console.log(totalAngle - 2160 - 22.5);
+    // if (reduceAngle === 0) {
+    //   reduceAngle = 0;
+    // } else {
+    //   reduceAngle = 360 - randomAngle;
+    // }
+    totalAngle = totalAngle + randomAngle;
     gsap.to(turnTableCenter.value, {
-      rotate: `+=${totalAngle}`,
+      rotate: `+=${totalAngle - 22.5}`,
       duration: 4,
       ease: "Power4.easeOut",
       onComplete: () => {
