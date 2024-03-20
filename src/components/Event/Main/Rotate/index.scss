@@ -38,6 +38,12 @@
         top: 47.5%;
         left: 0%;
         // background-color: rgba(100, 200, 245, 0.2);
+        @media (max-width: 480px) {
+          font-size: 0.8rem;
+        }
+        @media (max-width: 390px) {
+          font-size: 0.6rem;
+        }
       }
       .awardList:nth-child(1) {
         transform-origin: 100% 50%;
