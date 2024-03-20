@@ -11,6 +11,7 @@ type UseDataStore = {
   awardList: string[];
   animationStatus: boolean;
   backgroundStatus: boolean;
+  randomAngle: number[][];
 };
 
 const useDataStore = defineStore({
@@ -20,23 +21,39 @@ const useDataStore = defineStore({
     loginStatus: false,
     awardList: [
       "Rice",
-      "Noodles",
-      "Fried Chicken",
-      "Vegetarian Diet",
-      "Soup",
-      "Dessert",
-      "Steak",
       "Drink",
+      "Steak",
+      "Dessert",
+      "Soup",
+      "Vegetarian Diet",
+      "Fried Chicken",
+      "Noodles",
     ],
     animationStatus: false,
     backgroundStatus: false,
+    randomAngle: [
+      [12.5, 32.5],
+      [57.5, 87.5],
+      [102.5, 122.5],
+      [147.5, 167.5],
+      [192.5, 212.5],
+      [237.5, 257.5],
+      [282.5, 302.5],
+      [327.5, 347.5],
+    ],
   }),
   getters: {
+    getAwardList(state) {
+      return state.awardList;
+    },
     getAnimationStatus(state) {
       return state.animationStatus;
     },
     getBackgroundStatus(state) {
       return state.backgroundStatus;
+    },
+    getRandomAngle(state) {
+      return state.randomAngle;
     },
   },
   actions: {
