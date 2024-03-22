@@ -1,9 +1,48 @@
 .rotate-wrap {
-  z-index: 2;
   position: relative;
   width: 100%;
   padding-top: 2%;
+  z-index: 2;
   // background-color: rgba(241, 55, 200, 0.6);
+  .award {
+    position: absolute;
+    width: 85%;
+    top: 20%;
+    padding-bottom: calc(85% / 600 * 578);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    z-index: 3;
+    transform: translateX(-50%);
+    left: 50%;
+    .award-list {
+      position: absolute;
+      width: 100%;
+      font-size: 3rem;
+      font-family: "Noto Sans TC";
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      // 'Noto Sans TC', '微軟正黑體', 'sans-serif'
+      // background-color: rgba(33, 125, 200, 0.6);
+    }
+    .close {
+      position: absolute;
+      top: 12%;
+      right: 7%;
+      width: 8%;
+      padding-bottom: calc(8% / 1280 * 1280);
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
+  }
+  .backgroundStatus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 
   .turntable-bottom {
     position: relative;
@@ -97,13 +136,5 @@
       background-repeat: no-repeat;
       // background-color: rgba(100, 255, 100, 0.4);
     }
-  }
-  .backgroundStatus {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
   }
 }

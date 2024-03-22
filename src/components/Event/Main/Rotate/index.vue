@@ -1,5 +1,20 @@
 <template>
   <div class="rotate-wrap">
+    <div
+      class="award"
+      v-show="getShowAwardStatus"
+      ref="award"
+      :style="{
+        'background-image': `url(${require('@/assets/award.png')})`,
+      }"
+    >
+      <div class="award-list" v-text="`${showAward}`"></div>
+      <div
+        class="close"
+        @click="closeShowAward"
+        :style="{ 'background-image': `url(${require('@/assets/close.png')})` }"
+      ></div>
+    </div>
     <div class="backgroundStatus" v-show="backgroundStatus"></div>
     <div
       class="turntable-bottom"
@@ -48,6 +63,10 @@ const turnTableCenter = ref(null);
 
 const pointer = ref(null);
 
+const award = ref(null);
+
+const showAward = ref();
+
 const awardList = computed(() => dataStore.getAwardList);
 
 const animationStatus = computed(() => dataStore.getAnimationStatus);
@@ -55,6 +74,12 @@ const animationStatus = computed(() => dataStore.getAnimationStatus);
 const backgroundStatus = computed(() => dataStore.getBackgroundStatus);
 
 const getRandomAngle = computed(() => dataStore.getRandomAngle);
+
+const getShowAwardStatus = computed(() => dataStore.getShowAwardStatus);
+
+const closeShowAward = () => {
+  dataStore.actionShowAwardStatus();
+};
 
 // 開場動畫;
 const openAnimation = () => {
@@ -96,32 +121,48 @@ const randomAngleFn = () => {
   return { randomIndex, randomAngle }; //指針角度
 };
 
+// const onCompleteAward = async (randomIndex, reduceAngle, randomAngle) => {
+
+// };
+
 //轉盤執行
 const closeRaiseAnimation = () => {
   let reduceAngle = 0;
 
   const animation = () => {
-    // console.log("totalAngle:", totalAngle);
     const { randomIndex, randomAngle } = randomAngleFn();
-    //轉盤
-
     if (reduceAngle === 0) {
       reduceAngle = 0;
     }
+    showAward.value = awardList.value[randomIndex]; // 顯示得獎內容
 
-    // totalAngle = totalAngle + randomAngle;
-    console.log(reduceAngle);
+    //轉盤動畫
     gsap.to(turnTableCenter.value, {
       rotate: `+=${2160 + randomAngle + reduceAngle - 22.5}`,
       duration: 4,
       ease: "Power4.easeOut",
       onComplete: () => {
-        // if (totalAngle > 2520) {
-        //   totalAngle = totalAngle - 360;
-        // }
         reduceAngle = 360 - randomAngle + 22.5;
+        dataStore.actionShowAwardStatus();
 
-        alert(awardList.value[randomIndex]);
+        // //得獎彈窗動畫
+        // gsap.to(award.value, {
+        //   duration: 4,
+        //   ease: "Power4.easeOut",
+        //   onComplete: () => {
+        //     reduceAngle = 360 - randomAngle + 22.5;
+
+        //     dataStore.actionShowAwardStatus();
+
+        //     showAward.value = awardList.value[randomIndex];
+        //     if (getShowAwardStatus.value) {
+        //     }
+
+        //     dataStore.actionAnimationStatus();
+        //     dataStore.actionBackgroundStatus();
+        //   },
+        // });
+
         dataStore.actionAnimationStatus();
         dataStore.actionBackgroundStatus();
       },

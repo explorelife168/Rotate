@@ -12,6 +12,7 @@ type UseDataStore = {
   animationStatus: boolean;
   backgroundStatus: boolean;
   randomAngle: number[][];
+  showAwardStatus: boolean;
 };
 
 const useDataStore = defineStore({
@@ -41,6 +42,7 @@ const useDataStore = defineStore({
       [282.5, 302.5], //315
       [327.5, 347.5], //360
     ],
+    showAwardStatus: false,
   }),
   getters: {
     getAwardList(state) {
@@ -54,6 +56,9 @@ const useDataStore = defineStore({
     },
     getRandomAngle(state) {
       return state.randomAngle;
+    },
+    getShowAwardStatus(state) {
+      return state.showAwardStatus;
     },
   },
   actions: {
@@ -71,6 +76,9 @@ const useDataStore = defineStore({
     },
     actionBackgroundStatus() {
       this.backgroundStatus = !this.backgroundStatus;
+    },
+    actionShowAwardStatus() {
+      this.showAwardStatus = !this.showAwardStatus;
     },
   },
 });
