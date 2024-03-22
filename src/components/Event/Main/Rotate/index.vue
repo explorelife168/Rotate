@@ -15,6 +15,7 @@
         :style="{ 'background-image': `url(${require('@/assets/close.png')})` }"
       ></div>
     </div>
+    <div class="AwardBackgroundStatus" v-show="getShowAwardStatus"></div>
     <div class="backgroundStatus" v-show="backgroundStatus"></div>
     <div
       class="turntable-bottom"

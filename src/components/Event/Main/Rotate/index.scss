@@ -33,7 +33,20 @@
       padding-bottom: calc(8% / 1280 * 1280);
       background-size: 100% auto;
       background-repeat: no-repeat;
+      &:hover {
+        width: 10%;
+        padding-bottom: calc(10% / 1280 * 1280);
+      }
     }
+  }
+  .AwardBackgroundStatus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
   }
   .backgroundStatus {
     position: fixed;
