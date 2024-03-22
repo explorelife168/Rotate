@@ -13,6 +13,7 @@
     background-repeat: no-repeat;
     z-index: 3;
     transform: translateX(-50%);
+    opacity: 0;
     left: 50%;
     .award-list {
       position: absolute;
@@ -36,6 +37,7 @@
       &:hover {
         width: 10%;
         padding-bottom: calc(10% / 1280 * 1280);
+        cursor: pointer;
       }
     }
   }

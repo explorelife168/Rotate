@@ -15,7 +15,7 @@
         :style="{ 'background-image': `url(${require('@/assets/close.png')})` }"
       ></div>
     </div>
-    <div class="AwardBackgroundStatus" v-show="getShowAwardStatus"></div>
+    <div class="AwardBackgroundStatus" v-if="getShowAwardStatus"></div>
     <div class="backgroundStatus" v-show="backgroundStatus"></div>
     <div
       class="turntable-bottom"
@@ -78,6 +78,7 @@ const getRandomAngle = computed(() => dataStore.getRandomAngle);
 
 const getShowAwardStatus = computed(() => dataStore.getShowAwardStatus);
 
+// 開獎畫面關閉
 const closeShowAward = () => {
   dataStore.actionShowAwardStatus();
 };
@@ -122,10 +123,6 @@ const randomAngleFn = () => {
   return { randomIndex, randomAngle }; //指針角度
 };
 
-// const onCompleteAward = async (randomIndex, reduceAngle, randomAngle) => {
-
-// };
-
 //轉盤執行
 const closeRaiseAnimation = () => {
   let reduceAngle = 0;
@@ -145,27 +142,17 @@ const closeRaiseAnimation = () => {
       onComplete: () => {
         reduceAngle = 360 - randomAngle + 22.5;
         dataStore.actionShowAwardStatus();
-
-        // //得獎彈窗動畫
-        // gsap.to(award.value, {
-        //   duration: 4,
-        //   ease: "Power4.easeOut",
-        //   onComplete: () => {
-        //     reduceAngle = 360 - randomAngle + 22.5;
-
-        //     dataStore.actionShowAwardStatus();
-
-        //     showAward.value = awardList.value[randomIndex];
-        //     if (getShowAwardStatus.value) {
-        //     }
-
-        //     dataStore.actionAnimationStatus();
-        //     dataStore.actionBackgroundStatus();
-        //   },
-        // });
-
         dataStore.actionAnimationStatus();
         dataStore.actionBackgroundStatus();
+        // //得獎彈窗動畫
+        gsap.set(award.value, { y: -200, opacity: 1 });
+        gsap.to(award.value, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "Power4.easeOut",
+          // onComplete: () => {},
+        });
       },
     });
     //指針動畫
@@ -187,6 +174,7 @@ const closeRaiseAnimation = () => {
 
   return animation;
 };
+
 const raiseAnimation = closeRaiseAnimation();
 
 watch(animationStatus, (newVal) => {
