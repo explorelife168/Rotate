@@ -10,7 +10,11 @@
     >
       <div class="award-list" v-text="`${showAward}`"></div>
       <div class="font-map-container">
-        <font-awesome-icon icon="fa-solid fa-location-dot" class="font-map" />
+        <font-awesome-icon
+          icon="fa-solid fa-location-dot"
+          class="font-map"
+          @click="showMapStatus"
+        />
         <div class="text" v-text="`${showAwardStoreName}`"></div>
       </div>
       <div
@@ -98,6 +102,10 @@ const closeShowAward = () => {
   dataStore.actionShowAwardStatus();
 };
 
+const showMapStatus = () => {
+  dataStore.actionShowMapStatus();
+};
+
 // 開場動畫;
 const openAnimation = () => {
   dataStore.actionBackgroundStatus();
@@ -138,10 +146,14 @@ const randomAngleFn = () => {
   return { randomIndex, randomAngle }; //指針角度
 };
 
+// 隨機店名
 const randomAwardStoreName = (idx: number) => {
   let randomStore = getAwardPosition.value[idx];
   let randomIdx = Math.floor(Math.random() * randomStore.length);
   let randomStoreName = randomStore[randomIdx].name;
+  let lat = randomStore[randomIdx].position[0]; // 地圖座標
+  let lng = randomStore[randomIdx].position[1]; // 地圖座標
+  dataStore.actionMapLatLng(lat, lng, randomStoreName);
   showAwardStoreName.value = randomStoreName;
 };
 //轉盤執行

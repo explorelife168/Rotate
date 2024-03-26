@@ -13,45 +13,37 @@
         @click="closeMap"
         :style="{ 'background-image': `url(${require('@/assets/close.png')})` }"
       ></div>
+      <InfoWindow :options="{ position: center, content: `${storeName}` }" />
     </GoogleMap>
   </div>
 </template>
 <script lang="ts" setup>
-import { GoogleMap, Marker } from "vue3-google-map";
-// import useDataStore from "@/stores/useDataStore";
-import { ref } from "vue";
+import { GoogleMap, Marker, InfoWindow } from "vue3-google-map";
+import useDataStore from "@/stores/useDataStore";
+import { computed } from "vue";
 
-const center = ref({ lat: 25.12662, lng: 121.45747 });
-
-const markerOptions = ref({
-  position: {
-    lat: 25.12662,
-    lng: 121.45747,
-  },
+const dataStore = useDataStore();
+const center = computed(() => {
+  return { lat: dataStore.getMapLat, lng: dataStore.getMapLng };
 });
 
+const markerOptions = computed(() => {
+  return {
+    position: {
+      lat: dataStore.getMapLat,
+      lng: dataStore.getMapLng,
+    },
+  };
+});
+
+const storeName = computed(() => dataStore.getStoreName);
 const closeMap = () => {
-  console.log("");
+  dataStore.actionShowMapStatus();
 };
-// const dataStore = useDataStore();
 
-// const getShowAwardStatus = computed(() => dataStore.getShowAwardStatus);
-
-// const initMap = () => {
-//   const google: undefined | any = (window as any).google;
-//   const myLatLng = { lat: 24.92218475939543, lng: 121.2141211272122 };
-//   new google.maps.Map(map.value, {
-//     center: myLatLng,
-//     zoom: 14,
-//   });
+// const mapInfo = () => {
+//   let place = autoComplete.getPla;
 // };
-
-// watch(getShowAwardStatus, (newVal) => {
-//   if (newVal) {
-//     initMap();
-//     console.log("123");
-//   }
-// });
 </script>
 <style lang="scss" scoped>
 @import "./index.scss";

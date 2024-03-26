@@ -32,11 +32,27 @@
       position: absolute;
       width: 100%;
       top: 55%;
-      background-color: rgba(10, 100, 50, 0.6);
+      // background-color: rgba(10, 100, 50, 0.6);
+
       .font-map {
-        font-size: 3rem;
+        font-size: 2.5rem;
         z-index: 3;
         color: rgba(150, 50, 0, 1);
+
+        animation: moveUpDown 0.5s infinite alternate;
+        @keyframes moveUpDown {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(
+              -10px
+            ); /* 您可以根据需要调整此值以控制上下移动的距离 */
+          }
+        }
+        &:hover {
+          cursor: pointer;
+        }
       }
       .text {
         font-size: 1.3rem;
@@ -107,6 +123,7 @@
         width: 50%;
         top: 47.5%;
         left: 0%;
+        font-size: 1.2rem;
         // background-color: rgba(100, 200, 245, 0.2);
         @media (max-width: 480px) {
           font-size: 0.8rem;
