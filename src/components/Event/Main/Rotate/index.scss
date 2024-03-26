@@ -20,10 +20,28 @@
       font-size: 3rem;
       font-family: "Noto Sans TC";
       text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 35%;
+
       // 'Noto Sans TC', '微軟正黑體', 'sans-serif'
       // background-color: rgba(33, 125, 200, 0.6);
+    }
+    .font-map-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+      top: 55%;
+      background-color: rgba(10, 100, 50, 0.6);
+      .font-map {
+        font-size: 3rem;
+        z-index: 3;
+        color: rgba(150, 50, 0, 1);
+      }
+      .text {
+        font-size: 1.3rem;
+        margin-left: 0.8rem;
+      }
     }
     .close {
       position: absolute;

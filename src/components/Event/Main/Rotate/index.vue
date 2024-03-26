@@ -9,6 +9,10 @@
       }"
     >
       <div class="award-list" v-text="`${showAward}`"></div>
+      <div class="font-map-container">
+        <font-awesome-icon icon="fa-solid fa-location-dot" class="font-map" />
+        <div class="text" v-text="`${showAwardStoreName}`"></div>
+      </div>
       <div
         class="close"
         @click="closeShowAward"
@@ -51,12 +55,17 @@
         }"
       ></div>
     </div>
+    <div class="map" v-show="getShowMapStatus">
+      <Map />
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
 import gsap from "gsap";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { onMounted, ref, computed, watch } from "vue";
 import useDataStore from "@/stores/useDataStore";
+import Map from "../Map/index.vue";
 
 const dataStore = useDataStore();
 
@@ -68,6 +77,8 @@ const award = ref(null);
 
 const showAward = ref();
 
+const showAwardStoreName = ref();
+
 const awardList = computed(() => dataStore.getAwardList);
 
 const animationStatus = computed(() => dataStore.getAnimationStatus);
@@ -76,7 +87,11 @@ const backgroundStatus = computed(() => dataStore.getBackgroundStatus);
 
 const getRandomAngle = computed(() => dataStore.getRandomAngle);
 
+const getAwardPosition = computed(() => dataStore.getAwardPosition);
+
 const getShowAwardStatus = computed(() => dataStore.getShowAwardStatus);
+
+const getShowMapStatus = computed(() => dataStore.getShowMapStatus);
 
 // 開獎畫面關閉
 const closeShowAward = () => {
@@ -123,6 +138,12 @@ const randomAngleFn = () => {
   return { randomIndex, randomAngle }; //指針角度
 };
 
+const randomAwardStoreName = (idx: number) => {
+  let randomStore = getAwardPosition.value[idx];
+  let randomIdx = Math.floor(Math.random() * randomStore.length);
+  let randomStoreName = randomStore[randomIdx].name;
+  showAwardStoreName.value = randomStoreName;
+};
 //轉盤執行
 const closeRaiseAnimation = () => {
   let reduceAngle = 0;
@@ -133,7 +154,7 @@ const closeRaiseAnimation = () => {
       reduceAngle = 0;
     }
     showAward.value = awardList.value[randomIndex]; // 顯示得獎內容
-
+    randomAwardStoreName(randomIndex); // 隨機得獎店名
     //轉盤動畫
     gsap.to(turnTableCenter.value, {
       rotate: `+=${2160 + randomAngle + reduceAngle - 22.5}`,
