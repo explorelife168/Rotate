@@ -21,9 +21,9 @@
       font-family: "Noto Sans TC";
       text-align: center;
       top: 35%;
-
-      // 'Noto Sans TC', '微軟正黑體', 'sans-serif'
-      // background-color: rgba(33, 125, 200, 0.6);
+      @media (max-width: 480px) {
+        font-size: 2rem;
+      }
     }
     .font-map-container {
       display: flex;
@@ -32,22 +32,18 @@
       position: absolute;
       width: 100%;
       top: 55%;
-      // background-color: rgba(10, 100, 50, 0.6);
 
       .font-map {
         font-size: 2.5rem;
         z-index: 3;
         color: rgba(150, 50, 0, 1);
-
         animation: moveUpDown 0.5s infinite alternate;
         @keyframes moveUpDown {
           0% {
             transform: translateY(0);
           }
           100% {
-            transform: translateY(
-              -10px
-            ); /* 您可以根据需要调整此值以控制上下移动的距离 */
+            transform: translateY(-10px);
           }
         }
         &:hover {
