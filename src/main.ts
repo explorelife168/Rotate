@@ -9,20 +9,6 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 
-// router.beforeEach(async (to, from, next) => {
-//     if (to.meta.requireAuth) {
-
-//       try {
-
-//         }
-//       } catch (error) {
-//         console.error("Error checking user authentication:", error);
-//       }
-//     } else {
-//       next();
-//     }
-//   });
-
 library.add(fas, fab, far);
 const app = createApp(App);
 const pinia = createPinia();

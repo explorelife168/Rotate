@@ -3,7 +3,6 @@
   width: 100%;
   padding-top: 2%;
   z-index: 2;
-  // background-color: rgba(241, 55, 200, 0.6);
   .award {
     position: absolute;
     width: 80%;
@@ -13,7 +12,6 @@
     background-repeat: no-repeat;
     right: 10%;
     z-index: 3;
-    // background-color: rgba(150, 200, 123, 0.6);
     .award-list {
       position: absolute;
       width: 100%;
@@ -102,17 +100,6 @@
       padding-bottom: calc(88% / 640 * 640);
       background-size: 100% auto;
       background-repeat: no-repeat;
-      // transform: rotate(45deg);
-      // animation: rotate 5s linear infinite;
-      // transform-origin: center;
-      // @keyframes rotate {
-      //   0% {
-      //     transform: rotate(0deg);
-      //   }
-      //   100% {
-      //     transform: rotate(360deg);
-      //   }
-      // }
       .awardList {
         position: absolute;
         text-align: center;
@@ -120,7 +107,6 @@
         top: 47.5%;
         left: 0%;
         font-size: 1.2rem;
-        // background-color: rgba(100, 200, 245, 0.2);
         @media (max-width: 480px) {
           font-size: 0.8rem;
         }
@@ -178,7 +164,6 @@
       padding-bottom: calc(15% / 132 * 137);
       background-size: 100% auto;
       background-repeat: no-repeat;
-      // background-color: rgba(100, 255, 100, 0.4);
     }
   }
 }

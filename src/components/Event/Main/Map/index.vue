@@ -40,10 +40,6 @@ const storeName = computed(() => dataStore.getStoreName);
 const closeMap = () => {
   dataStore.actionShowMapStatus();
 };
-
-// const mapInfo = () => {
-//   let place = autoComplete.getPla;
-// };
 </script>
 <style lang="scss" scoped>
 @import "./index.scss";
