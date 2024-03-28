@@ -1,5 +1,6 @@
 <template>
   <div class="main-wrap">
+    <Title />
     <Background />
     <Rotate />
     <Btn />
@@ -7,6 +8,7 @@
 </template>
 
 <script lang="ts" setup>
+import Title from "../Main/Title/index.vue";
 import Background from "../Main/Background/index.vue";
 import Rotate from "../Main/Rotate/index.vue";
 import Btn from "../Main/Btn/index.vue";

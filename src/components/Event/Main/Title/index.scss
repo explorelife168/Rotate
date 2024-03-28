@@ -1,0 +1,15 @@
+.title-wrap {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  padding-top: 5%;
+  .title {
+    position: relative;
+    width: 65%;
+    padding-bottom: calc(65% / 2334 * 825);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+}

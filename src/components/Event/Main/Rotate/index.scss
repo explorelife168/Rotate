@@ -1,13 +1,11 @@
 .rotate-wrap {
   position: relative;
   width: 100%;
-  padding-top: 2%;
   z-index: 2;
   .award {
     position: absolute;
     width: 80%;
-    top: 20%;
-    padding-bottom: calc(80% / 600 * 578);
+    padding-bottom: calc(80% / 1396 * 1267);
     background-size: 100% auto;
     background-repeat: no-repeat;
     right: 10%;
@@ -18,7 +16,7 @@
       font-size: 3rem;
       font-family: "Noto Sans TC";
       text-align: center;
-      top: 35%;
+      top: 50%;
       @media (max-width: 480px) {
         font-size: 2rem;
       }
@@ -29,7 +27,7 @@
       justify-content: center;
       position: absolute;
       width: 100%;
-      top: 55%;
+      top: 70%;
 
       .font-map {
         font-size: 2.5rem;
@@ -49,14 +47,14 @@
         }
       }
       .text {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         margin-left: 0.8rem;
       }
     }
     .close {
       position: absolute;
-      top: 12%;
-      right: 7%;
+      top: 8%;
+      right: 1%;
       width: 8%;
       padding-bottom: calc(8% / 1280 * 1280);
       background-size: 100% auto;
