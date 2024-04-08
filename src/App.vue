@@ -8,11 +8,13 @@
 * {
   margin: 0;
 }
+
 html,
 body,
 #app {
   height: 100%;
 }
+
 .app {
 }
 </style>

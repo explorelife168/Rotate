@@ -2,70 +2,81 @@
   position: relative;
   width: 100%;
   z-index: 2;
+
   .award {
     position: absolute;
-    width: 80%;
-    padding-bottom: calc(80% / 1396 * 1267);
-    background-size: 100% auto;
-    background-repeat: no-repeat;
     right: 10%;
+    padding-bottom: calc(80% / 1396 * 1267);
+    width: 80%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
     z-index: 3;
+
     .award-list {
       position: absolute;
+      top: 50%;
       width: 100%;
       font-size: 3rem;
       font-family: "Noto Sans TC";
       text-align: center;
-      top: 50%;
-      @media (max-width: 480px) {
+
+      @media (width <= 480px) {
         font-size: 2rem;
       }
     }
+
     .font-map-container {
+      position: absolute;
+      top: 70%;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: absolute;
       width: 100%;
-      top: 70%;
 
       .font-map {
         font-size: 2.5rem;
-        z-index: 3;
         color: rgba(150, 50, 0, 1);
+        z-index: 3;
         animation: moveUpDown 0.5s infinite alternate;
+
         @keyframes moveUpDown {
           0% {
             transform: translateY(0);
           }
+
           100% {
             transform: translateY(-10px);
           }
         }
+
         &:hover {
           cursor: pointer;
         }
       }
+
       .text {
-        font-size: 1.5rem;
         margin-left: 0.8rem;
+        font-size: 1.5rem;
       }
     }
+
     .close {
       position: absolute;
       top: 8%;
       right: 1%;
-      width: 8%;
       padding-bottom: calc(8% / 1280 * 1280);
-      background-size: 100% auto;
+      width: 8%;
       background-repeat: no-repeat;
+      background-size: 100% auto;
+
       &:hover {
-        width: 10%;
         padding-bottom: calc(10% / 1280 * 1280);
+        width: 10%;
         cursor: pointer;
       }
     }
   }
+
   .AwardBackgroundStatus {
     position: fixed;
     top: 0;
@@ -75,6 +86,7 @@
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 1;
   }
+
   .backgroundStatus {
     position: fixed;
     top: 0;
@@ -83,85 +95,100 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
   }
+
   .turntable-bottom {
     position: relative;
-    width: 75%;
-    padding-bottom: calc(75% / 718 * 718);
-    background-size: 100% auto;
-    background-repeat: no-repeat;
     margin: 0 auto;
+    padding-bottom: calc(75% / 718 * 718);
+    width: 75%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
     .turntable-center {
       position: absolute;
-      width: 88%;
       top: 3.9%;
       left: 4.6%;
       padding-bottom: calc(88% / 640 * 640);
-      background-size: 100% auto;
+      width: 88%;
       background-repeat: no-repeat;
+      background-size: 100% auto;
+
       .awardList {
         position: absolute;
-        text-align: center;
-        width: 50%;
         top: 47.5%;
         left: 0%;
+        width: 50%;
         font-size: 1.2rem;
-        @media (max-width: 480px) {
+        text-align: center;
+
+        @media (width <= 480px) {
           font-size: 0.8rem;
         }
-        @media (max-width: 390px) {
+
+        @media (width <= 390px) {
           font-size: 0.6rem;
         }
       }
+
       .awardList:nth-child(1) {
         transform-origin: 100% 50%;
         transform: rotate(22.5deg);
       }
+
       .awardList:nth-child(8) {
         transform-origin: 100% 50%;
         transform: rotate(67.5deg);
       }
+
       .awardList:nth-child(7) {
         transform-origin: 100% 50%;
         transform: rotate(112.5deg);
       }
+
       .awardList:nth-child(6) {
         transform-origin: 100% 50%;
         transform: rotate(157.5deg);
       }
+
       .awardList:nth-child(5) {
         transform-origin: 100% 50%;
         transform: rotate(202.5deg);
       }
+
       .awardList:nth-child(4) {
         transform-origin: 100% 50%;
         transform: rotate(247.5deg);
       }
+
       .awardList:nth-child(3) {
         transform-origin: 100% 50%;
         transform: rotate(292.5deg);
       }
+
       .awardList:nth-child(2) {
         transform-origin: 100% 50%;
         transform: rotate(337.5deg);
       }
     }
+
     .turntable-top {
       position: absolute;
-      width: 11%;
-      left: 43%;
       top: 42.5%;
+      left: 43%;
       padding-bottom: calc(11% / 99 * 98);
-      background-size: 100% auto;
+      width: 11%;
       background-repeat: no-repeat;
+      background-size: 100% auto;
     }
+
     .pointer {
       position: absolute;
-      left: -2%;
       top: 20%;
-      width: 15%;
+      left: -2%;
       padding-bottom: calc(15% / 132 * 137);
-      background-size: 100% auto;
+      width: 15%;
       background-repeat: no-repeat;
+      background-size: 100% auto;
     }
   }
 }

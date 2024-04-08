@@ -1,13 +1,13 @@
 .event-wrap {
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+
   .bg {
     position: absolute;
-    min-width: 480px;
-
     width: 100%;
+    min-width: 480px;
     height: 100%;
     background-position: center top;
     background-repeat: repeat;

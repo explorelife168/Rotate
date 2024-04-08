@@ -1,6 +1,7 @@
 .map-wrap {
   position: absolute;
   top: 8%;
+  left: 50%;
   width: 90%;
   height: 50vh;
   background-color: rgb(255, 245, 237);
@@ -10,26 +11,28 @@
     rgba(255, 210, 186, 1) 53%,
     rgba(255, 209, 188, 1) 100%
   );
-  transform: translateX(-50%);
-  left: 50%;
   border-radius: 10px;
   z-index: 3;
+  transform: translateX(-50%);
+
   .google-map {
-    width: 90%;
-    height: 42vh;
     margin-top: 4vh;
     margin-left: 5%;
+    width: 90%;
+    height: 42vh;
+
     .close {
       position: absolute;
       top: 0;
       right: 0%;
-      width: 8%;
       padding-bottom: calc(8% / 1280 * 1280);
-      background-size: 100% auto;
+      width: 8%;
       background-repeat: no-repeat;
+      background-size: 100% auto;
+
       &:hover {
-        width: 9%;
         padding-bottom: calc(9% / 1280 * 1280);
+        width: 9%;
         cursor: pointer;
       }
     }
